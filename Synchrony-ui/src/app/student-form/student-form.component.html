@@ -1,0 +1,43 @@
+
+<p>student-form works!</p>
+<div class="container">
+    <h2> add new student </h2>
+    <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="id">
+        <div class="mb-3">
+            <label for="name" class="form-label"> Name: </label>
+            <input type="text" class="form-control" id="name" formControlName="name">
+            <div *ngIf="studentForm.get('name')?.invalid && studentForm.get('name')?.touched " class="text-danger">
+                Name is required
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label"> Age: </label>
+            <input type="text" class="form-control" id="age" formControlName="age">
+            <div *ngIf="studentForm.get('age')?.invalid && studentForm.get('age')?.touched " class="text-danger">
+                Enter a valid age (numbers only).
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="className" class="form-label"> Class: </label>
+            <input type="text" class="form-control" id="className" formControlName="className">
+            <div *ngIf="studentForm.get('className')?.invalid && studentForm.get('className')?.touched"
+                class="text-danger">
+                Class is required.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="phoneNumber" class="form-label"> Phone Number: </label>
+            <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
+            <div *ngIf="studentForm.get('phoneNumber')?.invalid && studentForm.get('phoneNumber')?.touched "
+                class="text-danger">
+                Class is required.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">Add Student</button>
+
+
+
+    </form>
+</div>

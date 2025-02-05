@@ -7,6 +7,7 @@ import { StudentFormComponent } from './student-form/student-form.component';
 
 import {HttpClientModule } from '@angular/common/http';
 import { StudentListComponent } from './student-list/student-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,8 @@ import { StudentListComponent } from './student-list/student-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
