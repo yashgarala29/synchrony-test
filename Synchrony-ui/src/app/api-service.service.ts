@@ -23,6 +23,9 @@ export class ApiServiceService {
   updateStudent(student: any): Observable<any> {
     return this.http.patch(this.baseUrl + "student/updateStudent", student, { responseType: 'text' });
   }
+  searchStudent(studentName: string): Observable<any> {
+    return this.http.get(this.baseUrl + "student/searchStudent/" + studentName);
+  }
 
 
 }

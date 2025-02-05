@@ -1,5 +1,3 @@
-
-<p>student-form works!</p>
 <div class="container">
     <h2> add new student </h2>
     <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
@@ -32,7 +30,7 @@
             <input type="text" class="form-control" id="phoneNumber" formControlName="phoneNumber">
             <div *ngIf="studentForm.get('phoneNumber')?.invalid && studentForm.get('phoneNumber')?.touched "
                 class="text-danger">
-                Class is required.
+                Enter a valid phone number.
             </div>
         </div>
         <button type="submit" class="btn btn-primary" [disabled]="studentForm.invalid">Add Student</button>

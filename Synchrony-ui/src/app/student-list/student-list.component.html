@@ -1,35 +1,38 @@
-<app-student-form [studentData]="studentVal" (updateClicked)="onUpdateClick()" > </app-student-form>
+<app-student-form [studentData]="studentVal" (updateClicked)="onUpdateClick()"> </app-student-form>
 
-<p>student-list works!</p>
+<!-- search bar  -->
 <div class="container mt-4">
-  <h2>User Data</h2>
-  <table class="table table-bordered">
-    <thead class="table-dark">
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Class Name</th>
-        <th>Age</th>
-        <th>Edit</th>
-        <th>Delete</th>
+  <h2>Search Student</h2>
+  <input type="text" class="form-control" placeholder="Search by name" (change)="searchStudent($event)">
+  <div class="container mt-4">
+    <h2>User Data</h2>
+    <table class="table table-bordered">
+      <thead class="table-dark">
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Class Name</th>
+          <th>Age</th>
+          <th>Edit</th>
+          <th>Delete</th>
 
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let stu of student">
-        <td>{{ stu.id }}</td>
-        <td>{{ stu.name }}</td>
-        <td>{{ stu.phoneNumber }}</td>
-        <td>{{ stu.className }}</td>
-        <td>{{ stu.age }}</td>
-        <td>
-          <button class="btn btn-primary" (click)="editStudent(stu)">Edit</button>
-        </td>
-        <td>
-          <button class="btn btn-danger" (click)="deleteStudent(stu.id)">Delete</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let stu of student">
+          <td>{{ stu.id }}</td>
+          <td>{{ stu.name }}</td>
+          <td>{{ stu.phoneNumber }}</td>
+          <td>{{ stu.className }}</td>
+          <td>{{ stu.age }}</td>
+          <td>
+            <button class="btn btn-primary" (click)="editStudent(stu)">Edit</button>
+          </td>
+          <td>
+            <button class="btn btn-danger" (click)="deleteStudent(stu.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

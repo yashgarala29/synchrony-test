@@ -29,10 +29,27 @@ export class StudentListComponent implements OnInit {
     this.studentVal = student;
   }
   onUpdateClick() {
+    setTimeout(() => {
+      this.apiSeervice.getStudents().subscribe((data) => {
+        this.student = data;
+      });
+    }, 500);
     // update the student list
-    this.apiSeervice.getStudents().subscribe((data) => {
-      this.student = data;
-    });
+
+  }
+  searchStudent(searchValue: Event) {
+    const searchString = searchValue.target as HTMLInputElement;
+    console.log(searchString.value);
+    if (searchString.value === '') {
+      this.apiSeervice.getStudents().subscribe((data) => {
+        this.student = data;
+      });
+    } else {
+      this.apiSeervice.searchStudent(searchString.value).subscribe((data) => {
+        this.student = data;
+      });
+
+    }
 
   }
 
